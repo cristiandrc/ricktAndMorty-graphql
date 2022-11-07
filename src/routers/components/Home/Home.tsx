@@ -12,7 +12,7 @@ const Home = () => {
       {
         loading ? <p>Loading....</p> : 
         <div>
-          {data?.characters?.results.map((e)=> e.name )}
+          {data?.characters?.results.map((e)=> e.name ).join(' --- ')}
         </div>
       }
     </>
