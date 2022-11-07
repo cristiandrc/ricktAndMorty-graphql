@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client"
 import { GET_CHARACTERS } from "../../graphql/queries"
-import { Characters } from "../../../types"
+import { Characters } from "../../types"
 
 
 const Home = () => {
