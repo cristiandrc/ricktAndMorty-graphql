@@ -5,6 +5,9 @@ export const GET_CHARACTERS = gql`
     characters{
       results{
         name
+        id
+        status
+        image
       }
     }
   }

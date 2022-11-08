@@ -4,6 +4,9 @@ export interface Characters {
   }
 }
 
-interface Character {
+export interface Character {
   name: string
+  id: string
+  status: string
+  image: string
 }
