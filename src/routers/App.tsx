@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink } from '@apollo/client';
 import './App.scss'
-import Home from '../components/Home/Home'
+import Home from '../pages/Home/Home'
 
 //Config Router
 const router = createBrowserRouter([
