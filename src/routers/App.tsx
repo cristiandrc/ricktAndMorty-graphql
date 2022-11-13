@@ -8,6 +8,7 @@ import {
 import "./style.scss";
 import Home from "../pages/Home/Home";
 import Layout from "../components/Layout/Layout";
+import NotFound from "../pages/NotFound/NotFound";
 
 //Config Router
 const router = createBrowserRouter([
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
       },
       {
         path: "*",
-        element: <span>Not Found</span>,
+        element: <NotFound />,
       },
     ],
   },
