@@ -22,4 +22,7 @@ export interface EpisodeType {
   air_date: string
   episode: string
   name: string
+  characters: CharacterEpisodeType[]
 }
+
+export interface CharacterEpisodeType extends Pick<Character, 'id' | 'image'> { }

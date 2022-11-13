@@ -1,6 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { GET_EPISODES } from "../../graphql/queries";
 import CardsContainer from "../../components/CardsContainer/CardsContainer";
+import { CardEpisode } from "../../components/CardEpisode/CardEpisode";
 import { EpisodesType } from "../../types";
 
 export const Episodes = () => {
@@ -11,11 +12,7 @@ export const Episodes = () => {
       <h1>Series Episodes</h1>
       <CardsContainer>
         {data?.episodes.results.map((e) => (
-          <div key={e.id}>
-            <p>{e.name}</p>
-            <p>{e.episode}</p>
-            <p>{e.air_date}</p>
-          </div>
+          <CardEpisode episode={e} key={e.id} />
         ))}
       </CardsContainer>
     </div>

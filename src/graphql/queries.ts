@@ -23,7 +23,10 @@ query{
       id
       episode
       air_date
-      
+      characters{
+        id
+        image
+      }
     }
   }
 }
