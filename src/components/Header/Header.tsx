@@ -1,11 +1,29 @@
+import { Link } from "react-router-dom";
+import "./style.scss";
+
 const Header = () => {
   return (
-    <header>
-      <nav>
+    <header className="header">
+      <nav className="header-nav">
         <ul>
-          <li>Characters</li>
-          <li>Episodes</li>
-          <li>Locations</li>
+          <li>
+            <Link className="link" to="/">
+              Characters
+            </Link>
+            <span className="border"></span>
+          </li>
+          <li>
+            <Link className="link" to="/episodes">
+              Episodes
+            </Link>
+            <span className="border"></span>
+          </li>
+          <li>
+            <Link className="link" to="/locations">
+              Locations
+            </Link>
+            <span className="border"></span>
+          </li>
         </ul>
       </nav>
     </header>
