@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { GET_CHARACTERS } from "../../graphql/queries";
 import { Characters } from "../../types";
-import Card from "../../components/Card/Card";
+import CardsContainer from "../../components/CardsContainer/CardsContainer";
 
 const Home = () => {
   const { loading, error, data } = useQuery<Characters>(GET_CHARACTERS);
@@ -13,7 +13,9 @@ const Home = () => {
         <p>Loading....</p>
       ) : (
         <div>
-          {data ? <Card characters={data?.characters.results} /> : null}
+          {data ? (
+            <CardsContainer characters={data?.characters.results} />
+          ) : null}
         </div>
       )}
     </>

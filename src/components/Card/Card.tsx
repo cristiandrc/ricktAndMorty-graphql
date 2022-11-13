@@ -1,22 +1,18 @@
-import { Character } from "../../types"
-import './style.scss'
+import { Character } from "../../types";
+import "./style.scss";
 
-interface Props{
-  characters: Character[]
+interface Props {
+  character: Character;
 }
 
-const Cart = (props:Props) => {
+const Card = ({ character }: Props) => {
   return (
-    <div className="container-cards">
-      {props.characters.map((e)=>(
-        <div className="card" key={e.id}>
-          <img className="card--img" src={e.image} alt="" />
-          <p className="card--name">{e.name}</p>
-          <p className="card--status">{e.status}</p>
-        </div>
-      ))}
+    <div className="card" key={character.id}>
+      <img className="card--img" src={character.image} alt="" />
+      <p className="card--name">{character.name}</p>
+      <p className="card--status">{character.status}</p>
     </div>
-  )
-}
+  );
+};
 
-export default Cart
+export default Card;
