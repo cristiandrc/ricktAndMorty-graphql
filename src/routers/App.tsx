@@ -9,6 +9,8 @@ import "./style.scss";
 import Home from "../pages/Home/Home";
 import Layout from "../components/Layout/Layout";
 import NotFound from "../pages/NotFound/NotFound";
+import Episodes from "../pages/Locations/Locations";
+import Locations from "../pages/Episodes/Episodes";
 
 //Config Router
 const router = createBrowserRouter([
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "episodes",
+        element: <Episodes />,
+      },
+      {
+        path: "locations",
+        element: <Locations />,
       },
       {
         path: "*",
