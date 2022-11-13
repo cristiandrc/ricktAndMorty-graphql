@@ -9,8 +9,8 @@ import "./style.scss";
 import Home from "../pages/Home/Home";
 import Layout from "../components/Layout/Layout";
 import NotFound from "../pages/NotFound/NotFound";
-import Episodes from "../pages/Locations/Locations";
-import Locations from "../pages/Episodes/Episodes";
+import { Locations } from "../pages/Locations/Locations";
+import { Episodes } from "../pages/Episodes/Episodes";
 
 //Config Router
 const router = createBrowserRouter([

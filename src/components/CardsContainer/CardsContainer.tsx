@@ -1,19 +1,12 @@
-import Card from "../Card/Card";
-import { Character } from "../../types";
+import React from "react";
 import "./style.scss";
 
 interface Props {
-  characters: Character[];
+  children: React.ReactNode;
 }
 
-const CardsContainer = ({ characters }: Props) => {
-  return (
-    <section className="cards-container">
-      {characters.map((e) => (
-        <Card character={e} key={e.id} />
-      ))}
-    </section>
-  );
+const CardsContainer = ({ children }: Props) => {
+  return <section className="cards-container">{children}</section>;
 };
 
 export default CardsContainer;

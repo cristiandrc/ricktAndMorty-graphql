@@ -1,5 +1,3 @@
-const Episodes = () => {
-  return <div>Episodes</div>;
+export const Locations = () => {
+  return <div>Locations</div>;
 };
-
-export default Episodes;

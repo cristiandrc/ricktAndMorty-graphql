@@ -13,3 +13,18 @@ export const GET_CHARACTERS = gql`
   }
 
 `
+
+export const GET_EPISODES = gql`
+
+query{
+  episodes{
+    results{
+      name
+      id
+      episode
+      air_date
+      
+    }
+  }
+}
+`

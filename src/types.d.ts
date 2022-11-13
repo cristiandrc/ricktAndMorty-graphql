@@ -10,3 +10,16 @@ export interface Character {
   status: string
   image: string
 }
+
+
+export interface EpisodesType {
+  episodes: {
+    results: EpisodeType[]
+  }
+}
+export interface EpisodeType {
+  id: string
+  air_date: string
+  episode: string
+  name: string
+}
