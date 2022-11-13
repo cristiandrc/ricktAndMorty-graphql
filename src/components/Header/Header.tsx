@@ -1,7 +1,15 @@
- const Header = () => {
+const Header = () => {
   return (
-    <div>Header</div>
-  )
-}
+    <header>
+      <nav>
+        <ul>
+          <li>Characters</li>
+          <li>Episodes</li>
+          <li>Locations</li>
+        </ul>
+      </nav>
+    </header>
+  );
+};
 
-export default Header
+export default Header;
