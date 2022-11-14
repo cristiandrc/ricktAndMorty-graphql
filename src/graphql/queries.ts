@@ -31,3 +31,19 @@ query{
   }
 }
 `
+
+export const GET_LOCATIONS = gql`
+  query{
+    locations{
+      results{
+        id
+        name
+        type
+        residents{
+          id
+          image
+        }
+      }
+    }
+  }
+`

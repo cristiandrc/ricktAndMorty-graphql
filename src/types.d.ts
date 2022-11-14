@@ -19,10 +19,24 @@ export interface EpisodesType {
 }
 export interface EpisodeType {
   id: string
+  name: string
   air_date: string
   episode: string
-  name: string
-  characters: CharacterEpisodeType[]
+  characters: CharacterMiniType[]
 }
 
-export interface CharacterEpisodeType extends Pick<Character, 'id' | 'image'> { }
+export interface CharacterMiniType extends Pick<Character, 'id' | 'image'> { }
+
+
+export interface LocationsType {
+  locations: {
+    results: LocationType[]
+  }
+}
+
+export interface LocationType {
+  id: string
+  name: string
+  type: string
+  residents: CharacterMiniType[]
+}

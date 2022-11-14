@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { GET_EPISODES } from "../../graphql/queries";
-import CardsContainer from "../../components/CardsContainer/CardsContainer";
+import { CardsContainer } from "../../components/CardsContainer/CardsContainer";
 import { CardEpisode } from "../../components/CardEpisode/CardEpisode";
 import { EpisodesType } from "../../types";
 
