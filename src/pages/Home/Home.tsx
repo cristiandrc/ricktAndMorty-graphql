@@ -1,25 +1,39 @@
 import { CardsContainer } from "../../components/CardsContainer/CardsContainer";
 import Card from "../../components/Card/Card";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AppContext } from "../../Context/Context";
+import { useSearchParams } from "react-router-dom";
 
 const Home = () => {
   const {
-    loadingCharacter: loading,
-    errorCharacter: error,
-    dataCharacter: data,
+    loadingCharacter,
+    calledCharacter,
+    errorCharacter,
+    dataCharacter,
+    filterCharacter,
   } = useContext(AppContext);
+
+  const [searchParams] = useSearchParams();
+  const nameParams = searchParams.get("name");
+
+  useEffect(() => {
+    if (filterCharacter !== undefined) {
+      typeof nameParams === "string"
+        ? filterCharacter(nameParams)
+        : filterCharacter();
+    }
+  }, []);
 
   return (
     <>
-      {loading ? (
+      {loadingCharacter || !calledCharacter ? (
         <p>Loading....</p>
       ) : (
         <div>
           <h1>Series Characters</h1>
-          {data ? (
+          {dataCharacter ? (
             <CardsContainer>
-              {data.characters.results.map((e) => (
+              {dataCharacter.characters.results.map((e) => (
                 <Card character={e} key={e.id} />
               ))}
             </CardsContainer>

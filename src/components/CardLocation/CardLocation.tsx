@@ -12,7 +12,7 @@ export const CardLocation = ({ location }: Props) => {
       <p>Name: {location.name}</p>
       <p>Type: {location.type}</p>
       <div className="mini-cards">
-        <p>location Characters</p>
+        <p>Resident Characters</p>
         <ul className="mini-cards-list">
           <li>
             <img src={location.residents[0]?.image} alt="" />

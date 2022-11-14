@@ -1,5 +1,5 @@
 import React from "react";
-import { useQuery } from "@apollo/client";
+import { useLazyQuery, useQuery } from "@apollo/client";
 import { GET_CHARACTERS } from "../graphql/queries";
 import { CharactersType } from "../types";
 import { ContextType } from "./context";
@@ -11,15 +11,33 @@ type Props = {
 };
 
 const AppProvider = ({ children }: Props) => {
-  const {
-    loading: loadingCharacter,
-    error: errorCharacter,
-    data: dataCharacter,
-  } = useQuery<CharactersType>(GET_CHARACTERS);
+  const [
+    getCharacter,
+    {
+      loading: loadingCharacter,
+      called: calledCharacter,
+      error: errorCharacter,
+      data: dataCharacter,
+    },
+  ] = useLazyQuery<CharactersType>(GET_CHARACTERS);
+
+  const filterCharacter = (name?: string, page?: Number): void => {
+    if (name) {
+      getCharacter({ variables: { name, page } });
+    } else {
+      getCharacter();
+    }
+  };
 
   return (
     <AppContext.Provider
-      value={{ loadingCharacter, errorCharacter, dataCharacter }}
+      value={{
+        loadingCharacter,
+        calledCharacter,
+        errorCharacter,
+        dataCharacter,
+        filterCharacter,
+      }}
     >
       {children}
     </AppContext.Provider>
