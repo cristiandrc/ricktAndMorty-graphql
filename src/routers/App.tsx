@@ -1,10 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  HttpLink,
-} from "@apollo/client";
 import "./style.scss";
 import Home from "../pages/Home/Home";
 import Layout from "../components/Layout/Layout";
@@ -38,20 +32,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-//Config Apollo
-const client = new ApolloClient({
-  // link: new HttpLink({
-  // }),
-  uri: "https://rickandmortyapi.com/graphql",
-  cache: new InMemoryCache(),
-});
-
 function App() {
-  return (
-    <ApolloProvider client={client}>
-      <RouterProvider router={router} />
-    </ApolloProvider>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

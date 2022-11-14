@@ -1,4 +1,4 @@
-export interface Characters {
+export interface CharactersType {
   characters: {
     results: Character[]
   }
