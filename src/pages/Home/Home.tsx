@@ -4,6 +4,7 @@ import { useContext, useEffect } from "react";
 import { AppContext } from "../../Context/Context";
 import { useSearchParams } from "react-router-dom";
 import { Pagination } from "../../components/Pagination/Pagination";
+import { Loading } from "../../components/Loading/Loading";
 
 const Home = () => {
   const { loadingCharacter, calledCharacter, dataCharacter, filterCharacter } =
@@ -20,12 +21,13 @@ const Home = () => {
 
   return (
     <>
-      {loadingCharacter || !calledCharacter ? (
-        <p>Loading....</p>
-      ) : (
-        <div>
-          <h1>Series Characters</h1>
-          {dataCharacter ? (
+      <div>
+        <h1>Series Characters</h1>
+
+        {loadingCharacter || !calledCharacter ? (
+          <Loading />
+        ) : (
+          dataCharacter && (
             <>
               <CardsContainer>
                 {dataCharacter.characters.results.map((e) => (
@@ -37,9 +39,9 @@ const Home = () => {
                 currentPage={pageParams}
               />
             </>
-          ) : null}
-        </div>
-      )}
+          )
+        )}
+      </div>
     </>
   );
 };
