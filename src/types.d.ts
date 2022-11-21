@@ -1,5 +1,8 @@
 export interface CharactersType {
   characters: {
+    info: {
+      pages: number
+    }
     results: Character[]
   }
 }

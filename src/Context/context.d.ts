@@ -6,7 +6,7 @@ export interface ContextType {
   calledCharacter?: boolean
   errorCharacter?: ApolloError
   dataCharacter?: CharactersType
-  filterCharacter?: (name?: string) => void
+  filterCharacter?: (page?: number) => void
 }
 
 

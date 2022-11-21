@@ -3,26 +3,20 @@ import Card from "../../components/Card/Card";
 import { useContext, useEffect } from "react";
 import { AppContext } from "../../Context/Context";
 import { useSearchParams } from "react-router-dom";
+import { Pagination } from "../../components/Pagination/Pagination";
 
 const Home = () => {
-  const {
-    loadingCharacter,
-    calledCharacter,
-    errorCharacter,
-    dataCharacter,
-    filterCharacter,
-  } = useContext(AppContext);
+  const { loadingCharacter, calledCharacter, dataCharacter, filterCharacter } =
+    useContext(AppContext);
 
   const [searchParams] = useSearchParams();
-  const nameParams = searchParams.get("name");
+  const pageParams = searchParams.get("page");
 
   useEffect(() => {
     if (filterCharacter !== undefined) {
-      typeof nameParams === "string"
-        ? filterCharacter(nameParams)
-        : filterCharacter();
+      pageParams ? filterCharacter(Number(pageParams)) : filterCharacter();
     }
-  }, []);
+  }, [pageParams]);
 
   return (
     <>
@@ -32,11 +26,17 @@ const Home = () => {
         <div>
           <h1>Series Characters</h1>
           {dataCharacter ? (
-            <CardsContainer>
-              {dataCharacter.characters.results.map((e) => (
-                <Card character={e} key={e.id} />
-              ))}
-            </CardsContainer>
+            <>
+              <CardsContainer>
+                {dataCharacter.characters.results.map((e) => (
+                  <Card character={e} key={e.id} />
+                ))}
+              </CardsContainer>
+              <Pagination
+                pages={dataCharacter.characters.info.pages}
+                currentPage={pageParams}
+              />
+            </>
           ) : null}
         </div>
       )}

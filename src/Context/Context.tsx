@@ -21,12 +21,8 @@ const AppProvider = ({ children }: Props) => {
     },
   ] = useLazyQuery<CharactersType>(GET_CHARACTERS);
 
-  const filterCharacter = (name?: string, page?: Number): void => {
-    if (name) {
-      getCharacter({ variables: { name, page } });
-    } else {
-      getCharacter();
-    }
+  const filterCharacter = (page?: number): void => {
+    getCharacter({ variables: { page } });
   };
 
   return (
