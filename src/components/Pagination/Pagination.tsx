@@ -4,6 +4,7 @@ import "./style.scss";
 type Props = {
   pages: number;
   currentPage: string | null;
+  loading?: boolean;
 };
 
 const validateCurrentPage = (
@@ -17,7 +18,7 @@ const validateCurrentPage = (
   }
 };
 
-export const Pagination = ({ pages, currentPage }: Props) => {
+export const Pagination = ({ pages, currentPage, loading }: Props) => {
   let pagesElement: number[] = [];
 
   if (currentPage !== null) {
@@ -42,14 +43,17 @@ export const Pagination = ({ pages, currentPage }: Props) => {
   }
 
   return (
-    <div className="container-pagination">
+    <div className={`container-pagination ${loading && "loadingPagination"} `}>
       <Link className="number-page" to={"/"}>
         First
       </Link>
       {pagesElement.map((i) => (
         <Link
           key={i}
-          className={`number-page ${validateCurrentPage(i, currentPage)} `}
+          className={`number-page pages ${validateCurrentPage(
+            i,
+            currentPage
+          )} `}
           to={`/?page=${i}`}
         >
           {i}

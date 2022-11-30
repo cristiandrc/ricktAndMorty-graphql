@@ -3,7 +3,7 @@
   justify-content: center;
   overflow-x: auto;
   margin: 10px auto;
-  width: 80%;
+  width: 90%;
   padding: 20px 10px;
 
   .number-page{
@@ -12,6 +12,7 @@
     justify-content: center;
     border: solid black 1px;
     padding: 10px;
+    width: 30px;
     text-decoration: none;
     margin: 0 2px;
     color: black;
@@ -23,10 +24,16 @@
 }
 
 
+.container-pagination.loadingPagination{
+  .number-page.pages{
+    background-color: rgb(196, 196, 196);
+    color: transparent;
+  }
+}
+
 @media (max-width: 500px) {
 
   .container-pagination{
-    // width: 70%;
 
     .number-page{
       padding: 5px;

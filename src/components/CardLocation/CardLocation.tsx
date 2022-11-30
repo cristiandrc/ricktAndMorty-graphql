@@ -6,7 +6,6 @@ interface Props {
 }
 
 export const CardLocation = ({ location }: Props) => {
-  console.log(location);
   return (
     <div className="card-location" key={location.id}>
       <p>Name: {location.name}</p>

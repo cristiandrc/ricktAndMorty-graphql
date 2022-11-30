@@ -21,6 +21,9 @@ export const GET_EPISODES = gql`
 
 query{
   episodes{
+    info{
+      pages
+    }
     results{
       name
       id

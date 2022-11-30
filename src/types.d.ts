@@ -17,6 +17,9 @@ export interface Character {
 
 export interface EpisodesType {
   episodes: {
+    info: {
+      pages: number
+    }
     results: EpisodeType[]
   }
 }
