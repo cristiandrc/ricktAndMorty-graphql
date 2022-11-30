@@ -22,3 +22,16 @@
   }
 }
 
+
+@media (max-width: 500px) {
+
+  .container-pagination{
+    // width: 70%;
+
+    .number-page{
+      padding: 5px;
+      font-size: 14px;
+    }
+  }
+
+}
